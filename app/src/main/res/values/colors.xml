@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorLightBackground">#f6ded4</color>
+    <color name="colorRoseNude">#e9bba9</color>
+    <color name="colorCoffeeNude">#e2af90</color>
+    <color name="colorCoffeeBrown">#854e4b</color>
+    <color name="colorCoffeeDark">#784643</color>
+    <color name="colorWhite">#FFFFFF</color>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="out_margin">25dp</dimen>
+    <dimen name="image_size">100dp</dimen>
+    <dimen name="field">150dp</dimen>
+    <dimen name="preview_size">200dp</dimen>
+    <dimen name="inner_margin">15dp</dimen>
+    <dimen name="detail_image">300dp</dimen>
+
+
+    <dimen name="header">25sp</dimen>
+    <dimen name="preview_text">20sp</dimen>
+    <dimen name="text">15sp</dimen>
+</resources>
