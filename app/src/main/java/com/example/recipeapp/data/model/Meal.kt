@@ -1,8 +1,8 @@
-package com.example.recipeapp
+package com.example.recipeapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Meal (
+data class Meal(
     @SerializedName("idMeal")
     val idMeal: String,
     @SerializedName("strMeal")
@@ -63,9 +63,4 @@ data class Meal (
     @SerializedName("strMeasure20") val strMeasure20: String?,
     @SerializedName("strSource") val strSource: String?,
     @SerializedName("dateModified") val dateModified: String
-)
-
-data class MealResponse(
-    @SerializedName("meals")
-    val meals: List<Meal>
 )

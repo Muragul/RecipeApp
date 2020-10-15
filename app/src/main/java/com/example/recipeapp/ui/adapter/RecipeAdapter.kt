@@ -1,4 +1,4 @@
-package com.example.recipeapp
+package com.example.recipeapp.ui.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,11 +8,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.recipeapp.R
+import com.example.recipeapp.data.model.Recipe
+import com.example.recipeapp.ui.activity.DetailActivity
 
-class RecipeAdapter(var list: List<Recipe>? = null) :
+class RecipeAdapter(
+    var recipeList: List<Recipe>
+) :
     RecyclerView.Adapter<RecipeAdapter.PostViewHolder>() {
 
-    inner class PostViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    inner class PostViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(post: Recipe?) {
             val tvTitle = view.findViewById<TextView>(R.id.preview)
             val thumbUrl = view.findViewById<ImageView>(R.id.image)
@@ -25,7 +30,6 @@ class RecipeAdapter(var list: List<Recipe>? = null) :
                 view.context.startActivity(intent)
             }
 
-
         }
     }
 
@@ -35,15 +39,10 @@ class RecipeAdapter(var list: List<Recipe>? = null) :
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.bind(list?.get(position))
+        holder.bind(recipeList[position])
     }
 
     override fun getItemCount(): Int {
-        return list?.size ?: 0
-    }
-
-    fun clearAll() {
-        (list as ArrayList<Recipe>).clear()
-        notifyDataSetChanged()
+        return recipeList.size
     }
 }
