@@ -1,4 +1,4 @@
-package com.example.recipeapp
+package com.example.recipeapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -11,9 +11,4 @@ data class Category(
     val strCategoryThumb: String,
     @SerializedName("strCategoryDescription")
     val strCategoryDescription: String
-)
-
-data class CategoryResponse (
-    @SerializedName("categories")
-    val categories: List<Category>
 )

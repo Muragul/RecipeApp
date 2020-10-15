@@ -6,6 +6,7 @@
     <dimen name="preview_size">200dp</dimen>
     <dimen name="inner_margin">15dp</dimen>
     <dimen name="detail_image">300dp</dimen>
+    <dimen name="back_icon">55dp</dimen>
 
 
     <dimen name="header">25sp</dimen>

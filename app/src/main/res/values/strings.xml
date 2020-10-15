@@ -3,4 +3,5 @@
     <string name="top_text">Recipe Categories</string>
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
+    <string name="recipe_header">Category: </string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.recipeapp
+package com.example.recipeapp.ui.activity
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.recipeapp.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -33,9 +34,9 @@ class DetailActivity : AppCompatActivity(), CoroutineScope {
         title = findViewById(R.id.title)
         image = findViewById(R.id.image)
         instructions = findViewById(R.id.instructions)
-        getRecipe(id)
+//        getRecipe(id)
     }
-
+/*
     @SuppressLint("SetTextI18n")
     fun getRecipe(id: String) {
         launch {
@@ -45,9 +46,10 @@ class DetailActivity : AppCompatActivity(), CoroutineScope {
                 title.text = recipe.strMeal
                 Glide.with(this@DetailActivity).load(recipe.strMealThumb).into(image)
                 instructions.text = recipe.strInstructions
-            }
-                else Toast.makeText(this@DetailActivity, "Error", Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(this@DetailActivity, "Error", Toast.LENGTH_SHORT).show()
         }
 
     }
+
+ */
 }
