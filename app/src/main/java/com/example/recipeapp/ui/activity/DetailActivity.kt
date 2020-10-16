@@ -1,17 +1,13 @@
 package com.example.recipeapp.ui.activity
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import com.bumptech.glide.Glide
 import com.example.recipeapp.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class DetailActivity : AppCompatActivity(), CoroutineScope {

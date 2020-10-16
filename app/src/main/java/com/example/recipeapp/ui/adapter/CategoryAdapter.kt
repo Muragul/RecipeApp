@@ -1,26 +1,27 @@
 package com.example.recipeapp.ui.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.recipeapp.R
+import com.example.recipeapp.BR
 import com.example.recipeapp.data.model.Category
+import com.example.recipeapp.databinding.ItemCategoryBinding
+import com.example.recipeapp.viewmodel.FoodCategoryListViewModel
+import kotlinx.android.synthetic.main.item_category.view.*
 
 class CategoryAdapter(
-    var context: Context,
-    var categoryList: List<Category>,
+    val categoryListViewModel: FoodCategoryListViewModel,
     val listener: CategoryClickListener
 ) :
     RecyclerView.Adapter<CategoryAdapter.PostViewHolder>() {
+    var categoryList: List<Category> = emptyList()
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): PostViewHolder {
-        val view = LayoutInflater.from(p0.context).inflate(R.layout.item_card, p0, false)
-        return PostViewHolder(view)
+        val inflater = LayoutInflater.from(p0.context)
+        val dataBinding = ItemCategoryBinding.inflate(inflater, p0, false)
+        return PostViewHolder(dataBinding)
     }
 
     override fun getItemCount(): Int = categoryList.size
@@ -30,21 +31,25 @@ class CategoryAdapter(
     }
 
     inner class PostViewHolder(
-        private val view: View
-    ) : RecyclerView.ViewHolder(view) {
+        private val dataBinding: ViewDataBinding
+    ) : RecyclerView.ViewHolder(dataBinding.root) {
+        val thumbUrl = itemView.image
 
         fun bind(post: Category) {
-            val tvTitle = view.findViewById<TextView>(R.id.preview)
-            val thumbUrl = view.findViewById<ImageView>(R.id.image)
-            tvTitle.text = post?.strCategory
-            Glide.with(view.context)
-                .load(post?.strCategoryThumb)
-                .into(thumbUrl)
-
-            view.setOnClickListener {
+            dataBinding.setVariable(BR.itemData, post)
+            dataBinding.executePendingBindings()
+            itemView.setOnClickListener {
                 listener.categoryItemClicked(post)
             }
+            Glide.with(itemView.context)
+                .load(post.strCategoryThumb)
+                .into(thumbUrl)
         }
+    }
+
+    fun updateList(categoryList: List<Category>) {
+        this.categoryList = categoryList
+        notifyDataSetChanged()
     }
 
     interface CategoryClickListener {
