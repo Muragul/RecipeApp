@@ -33,7 +33,7 @@ class CategoryAdapter(
         private val view: View
     ) : RecyclerView.ViewHolder(view) {
 
-        fun bind(post: Category?) {
+        fun bind(post: Category) {
             val tvTitle = view.findViewById<TextView>(R.id.preview)
             val thumbUrl = view.findViewById<ImageView>(R.id.image)
             tvTitle.text = post?.strCategory
@@ -42,13 +42,13 @@ class CategoryAdapter(
                 .into(thumbUrl)
 
             view.setOnClickListener {
-                listener.categoryItemClicked(post?.strCategory!!)
+                listener.categoryItemClicked(post)
             }
         }
     }
 
     interface CategoryClickListener {
-        fun categoryItemClicked(strCategory: String)
+        fun categoryItemClicked(task: Category)
     }
 
 }
