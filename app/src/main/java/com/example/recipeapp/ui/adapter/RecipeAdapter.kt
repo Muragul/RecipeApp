@@ -1,41 +1,39 @@
 package com.example.recipeapp.ui.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.recipeapp.R
 import com.example.recipeapp.data.model.Recipe
-import com.example.recipeapp.ui.activity.DetailActivity
+import com.example.recipeapp.databinding.ItemCategoryBinding
+import com.example.recipeapp.ui.fragment.RecipeFragment
+import kotlinx.android.synthetic.main.item_category.view.*
 
-class RecipeAdapter(
-    var recipeList: List<Recipe>
-) :
+class RecipeAdapter() :
     RecyclerView.Adapter<RecipeAdapter.PostViewHolder>() {
+    var recipeList: List<Recipe> = emptyList()
 
-    inner class PostViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class PostViewHolder(private val dataBinding: ViewDataBinding) :
+        RecyclerView.ViewHolder(dataBinding.root) {
+        val thumbUrl = itemView.image
+
         fun bind(post: Recipe?) {
-            val tvTitle = view.findViewById<TextView>(R.id.preview)
-            val thumbUrl = view.findViewById<ImageView>(R.id.image)
-
-            tvTitle.text = post?.strMeal
-            Glide.with(view.context).load(post?.strMealThumb).into(thumbUrl)
-            view.setOnClickListener {
-                val intent = Intent(view.context, DetailActivity::class.java)
-                intent.putExtra("idMeal", post?.idMeal)
-                view.context.startActivity(intent)
+            dataBinding.executePendingBindings()
+            Glide.with(itemView.context).load(post?.strMealThumb).into(thumbUrl)
+            itemView.setOnClickListener {
             }
-
         }
+    }
+    fun updateList(recipeList: List<Recipe>) {
+        this.recipeList = recipeList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
-        return PostViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+        val dataBinding = ItemCategoryBinding.inflate(inflater, parent, false)
+        return PostViewHolder(dataBinding)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {

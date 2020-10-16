@@ -1,6 +1,5 @@
 package com.example.recipeapp.ui.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,22 +8,22 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.recipeapp.R
 import com.example.recipeapp.data.model.Category
-import com.example.recipeapp.data.model.Recipe
+import com.example.recipeapp.databinding.RecipeListFragmentBinding
 import com.example.recipeapp.ui.adapter.RecipeAdapter
 import com.example.recipeapp.viewmodel.FoodRecipeListViewModel
-import com.example.recipeapp.viewmodel.ViewModelProviderFactory
+import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class RecipeFragment(val listener: BackButtonClicked, val task: Category) : Fragment() {
+    private lateinit var viewDataBinding: RecipeListFragmentBinding
     private lateinit var header: TextView
-    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RecipeAdapter
-    private lateinit var recipeList: List<Recipe>
-    private lateinit var foodRecipeListViewModel: FoodRecipeListViewModel
+    private val foodRecipeListViewModel: FoodRecipeListViewModel by viewModel()
     private lateinit var backButton: ImageView
 
     override fun onCreateView(
@@ -39,26 +38,8 @@ class RecipeFragment(val listener: BackButtonClicked, val task: Category) : Frag
         backButton.setOnClickListener {
             listener.backButtonClicked()
         }
-        recyclerView = rootView.findViewById(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(context)
         val description: TextView = rootView.findViewById(R.id.description)
         description.text = task.strCategoryDescription
-        val viewModelProviderFactory = ViewModelProviderFactory(activity as Context)
-        foodRecipeListViewModel = ViewModelProvider(this, viewModelProviderFactory)
-            .get(FoodRecipeListViewModel::class.java)
-        foodRecipeListViewModel.getRecipeListByCategory(task.strCategory)
-        foodRecipeListViewModel.liveData.observe(viewLifecycleOwner, Observer { result ->
-            when (result) {
-                is FoodRecipeListViewModel.State.ShowLoading -> {
-                }
-                is FoodRecipeListViewModel.State.HideLoading -> {
-                }
-                is FoodRecipeListViewModel.State.Result -> {
-                    adapter.recipeList = result.list
-                    adapter.notifyDataSetChanged()
-                }
-            }
-        })
         header.text = header.text.toString() + task.strCategory
         header.setOnClickListener {
             if (description.visibility == View.VISIBLE)
@@ -66,19 +47,44 @@ class RecipeFragment(val listener: BackButtonClicked, val task: Category) : Frag
             else
                 description.visibility = View.VISIBLE
         }
-        initView()
-        return rootView
+        viewDataBinding = RecipeListFragmentBinding.inflate(inflater, container, false)
+            .apply { lifecycleOwner = viewLifecycleOwner }
+        viewDataBinding.viewmodel = foodRecipeListViewModel
+        return viewDataBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewDataBinding.viewmodel?.getRecipeList(task.strCategory)
+        setupAdapter()
+        setObservers()
+    }
+
+    private fun setObservers() {
+        viewDataBinding.viewmodel?.getRecipeList(task.strCategory)?.observe(viewLifecycleOwner, Observer {
+            adapter.updateList(it)
+        })
 
     }
 
-    private fun initView() {
-        recipeList = ArrayList()
-        adapter = RecipeAdapter(recipeList)
-        recyclerView.adapter = adapter
-        adapter.notifyDataSetChanged()
+    private fun setupAdapter() {
+        val viewModel = viewDataBinding.viewmodel
+        if (viewModel != null) {
+            adapter = RecipeAdapter()
+            val layoutManager = LinearLayoutManager(activity)
+            recycler_view.layoutManager = layoutManager
+            recycler_view.addItemDecoration(
+                DividerItemDecoration(
+                    activity,
+                    layoutManager.orientation
+                )
+            )
+            recycler_view.adapter = adapter
+        }
+
     }
 
-    interface BackButtonClicked{
+    interface BackButtonClicked {
         fun backButtonClicked()
     }
 }
