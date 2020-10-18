@@ -17,6 +17,16 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/out_margin">
 
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/back_icon"
+                android:layout_height="@dimen/back_icon"
+                android:layout_marginTop="@dimen/inner_margin"
+                android:padding="@dimen/inner_margin"
+                android:src="@drawable/back"
+                android:background="@color/colorLightBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/image"

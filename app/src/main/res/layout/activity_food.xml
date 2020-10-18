@@ -4,8 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorLightBackground"
     android:orientation="vertical"
     tools:context=".ui.activity.FoodActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/back"
+        android:layout_width="@dimen/back_icon"
+        android:layout_height="@dimen/back_icon"
+        android:layout_marginTop="@dimen/inner_margin"
+        android:padding="@dimen/inner_margin"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inner_margin"
+        android:layout_marginTop="@dimen/out_margin"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:paddingBottom="@dimen/out_margin"
+        android:text="@string/top_text"
+        android:textColor="@color/colorCoffeeBrown"
+        android:textSize="@dimen/header" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fragment"

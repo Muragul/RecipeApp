@@ -18,43 +18,6 @@
         android:background="@color/colorLightBackground"
         tools:context=".ui.activity.FoodActivity">
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="@dimen/back_icon"
-            android:layout_height="@dimen/back_icon"
-            android:layout_marginTop="@dimen/inner_margin"
-            android:padding="@dimen/inner_margin"
-            android:src="@drawable/back"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/inner_margin"
-            android:layout_marginTop="@dimen/out_margin"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:paddingBottom="@dimen/out_margin"
-            android:text="@string/recipe_header"
-            android:textColor="@color/colorCoffeeBrown"
-            android:textSize="@dimen/header"
-            app:layout_constraintLeft_toRightOf="@+id/back"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/out_margin"
-            android:layout_marginRight="@dimen/out_margin"
-            android:fontFamily="sans-serif-condensed"
-            android:paddingBottom="@dimen/out_margin"
-            android:textSize="@dimen/text"
-            android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="@id/header"
-            app:layout_constraintTop_toBottomOf="@id/header" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
@@ -62,9 +25,10 @@
             android:clipToPadding="false"
             android:paddingBottom="@dimen/image_size"
             android:visibility="@{safeUnbox(viewmodel.dataLoading) ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
             android:id="@+id/progressBar"

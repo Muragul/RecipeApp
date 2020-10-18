@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipeapp.databinding.CategoriesFragmentBinding
 import com.example.recipeapp.ui.adapter.CategoryAdapter
@@ -48,14 +49,7 @@ class CategoryFragment(val listener: CategoryAdapter.CategoryClickListener) : Fr
         val viewModel = viewDataBinding.viewmodel
         if (viewModel != null) {
             adapter = CategoryAdapter(viewDataBinding.viewmodel!!, listener)
-            val layoutManager = LinearLayoutManager(activity)
-            recycler_view.layoutManager = layoutManager
-            recycler_view.addItemDecoration(
-                DividerItemDecoration(
-                    activity,
-                    layoutManager.orientation
-                )
-            )
+            recycler_view.layoutManager = GridLayoutManager(activity, 3)
             recycler_view.adapter = adapter
         }
 
