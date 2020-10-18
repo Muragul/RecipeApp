@@ -10,35 +10,32 @@
             type="com.example.recipeapp.data.model.Category" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/out_margin"
-        android:layout_marginRight="@dimen/out_margin"
-        android:layout_marginBottom="@dimen/out_margin"
-        android:background="@color/colorRoseNude"
-        android:padding="@dimen/out_margin">
+        android:layout_marginLeft="19dp"
+        android:layout_marginBottom="@dimen/middle_out_margin"
+        android:background="@drawable/layout_border"
+        android:padding="@dimen/inner_margin">
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="@dimen/image_size"
-            android:layout_height="@dimen/image_size"
+            android:layout_width="@dimen/small_image_size"
+            android:layout_height="@dimen/small_image_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/preview"
-            android:layout_width="@dimen/preview_size"
+            android:layout_width="@dimen/small_image_size"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/out_margin"
-            android:layout_marginTop="@dimen/out_margin"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/colorCoffeeDark"
-            android:textSize="@dimen/preview_text"
             android:text="@{itemData.strCategory}"
-            app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/colorCoffeeDark"
+            android:textSize="@dimen/text"
+            app:flow_horizontalAlign="center"
+            app:layout_constraintStart_toStartOf="@+id/image"
+            app:layout_constraintTop_toBottomOf="@id/image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

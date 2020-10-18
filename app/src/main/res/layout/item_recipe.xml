@@ -17,7 +17,7 @@
         android:layout_marginLeft="@dimen/out_margin"
         android:layout_marginRight="@dimen/out_margin"
         android:layout_marginBottom="@dimen/out_margin"
-        android:background="@color/colorRoseNude"
+        android:background="@drawable/layout_border"
         android:padding="@dimen/out_margin">
 
         <ImageView
