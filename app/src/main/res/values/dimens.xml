@@ -9,6 +9,9 @@
     <dimen name="inner_margin">15dp</dimen>
     <dimen name="detail_image">300dp</dimen>
     <dimen name="back_icon">55dp</dimen>
+    <dimen name="app_icon_splash">120dp</dimen>
+    <dimen name="ingredients">210dp</dimen>
+    <dimen name="recipe_data">150dp</dimen>
 
 
     <dimen name="header">25sp</dimen>

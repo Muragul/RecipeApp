@@ -19,7 +19,7 @@ interface ApiService {
     ): Deferred<Response<RecipeResponse>>
 
     @GET("lookup.php")
-    suspend fun getRecipe(
+    fun getRecipeAsync(
         @Query("i")idMeal: String
-    ): Response<MealResponse>
+    ): Deferred<Response<MealResponse>>
 }

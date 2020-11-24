@@ -2,7 +2,7 @@ package com.example.recipeapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import com.example.recipeapp.data.model.Category
-import com.example.recipeapp.domain.GetCategoryListUseCase
+import com.example.recipeapp.domain.usecase.GetCategoryListUseCase
 
 class FoodCategoryListViewModel(private val getCategoryListUseCase: GetCategoryListUseCase) :
     BaseViewModel() {

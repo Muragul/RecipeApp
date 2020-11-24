@@ -5,4 +5,6 @@
     <string name="instructions">Instructions</string>
     <string name="recipe_header">Category:    </string>
     <string name="error_text">No data to display</string>
+    <string name="category">Category:</string>
+    <string name="country">Country:</string>
 </resources>
