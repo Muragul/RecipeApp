@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.recipeapp.R
 
-class LoginFragment : Fragment() {
+class LoginFragment(private val listener: RedirectToSignUpClickListener) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +21,14 @@ class LoginFragment : Fragment() {
                 container, false
             ) as ViewGroup
 
+        val redirect: TextView = rootView.findViewById(R.id.to_signup)
+        redirect.setOnClickListener {
+            listener.redirectToSignUp()
+        }
         return rootView
+    }
+
+    interface RedirectToSignUpClickListener {
+        fun redirectToSignUp()
     }
 }
