@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/colorLightBackground"
     tools:context=".ui.activity.AuthActivity">
 
@@ -23,13 +23,13 @@
     <EditText
         android:id="@+id/email"
         android:layout_width="@dimen/input_width"
-        android:padding="@dimen/edit_text_padding"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/out_margin"
         android:background="@drawable/layout_border"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_vertical"
         android:hint="@string/hint_email"
+        android:padding="@dimen/edit_text_padding"
         android:textColor="@color/colorCoffeeDark"
         android:textColorHint="@color/colorLightBackground"
         android:textSize="@dimen/input_text_size"
@@ -40,13 +40,13 @@
     <EditText
         android:id="@+id/username"
         android:layout_width="@dimen/input_width"
-        android:padding="@dimen/edit_text_padding"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/out_margin"
         android:background="@drawable/layout_border"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_vertical"
         android:hint="@string/hint_username"
+        android:padding="@dimen/edit_text_padding"
         android:textColor="@color/colorCoffeeDark"
         android:textColorHint="@color/colorLightBackground"
         android:textSize="@dimen/input_text_size"
@@ -57,13 +57,13 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="@dimen/input_width"
-        android:padding="@dimen/edit_text_padding"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/out_margin"
         android:background="@drawable/layout_border"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_vertical"
         android:hint="@string/hint_password"
+        android:padding="@dimen/edit_text_padding"
         android:textColor="@color/colorCoffeeDark"
         android:textColorHint="@color/colorLightBackground"
         android:textSize="@dimen/input_text_size"
@@ -93,12 +93,20 @@
         android:id="@+id/to_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/redirect_size"
-        android:text="@string/redirect_to_login"
         android:layout_marginTop="@dimen/out_margin"
+        android:text="@string/redirect_to_login"
+        android:textColor="@color/colorCoffeeDark"
+        android:textSize="@dimen/redirect_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/colorCoffeeDark"
         app:layout_constraintTop_toBottomOf="@+id/signup_button" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/footer_margin_bottom"
+        android:text="@string/footer_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
