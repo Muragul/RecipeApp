@@ -7,4 +7,14 @@
     <string name="error_text">No data to display</string>
     <string name="category">Category:</string>
     <string name="country">Country:</string>
+
+    <!--auth-->
+    <string name="registration">Registration</string>
+    <string name="login">Log In</string>
+    <string name="hint_email">Email address</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="redirect_to_login">Have an account? <u> Log In </u></string>
+    <string name="redirect_to_sign_up">New to RecipeApp? <u> Create an account </u></string>
 </resources>

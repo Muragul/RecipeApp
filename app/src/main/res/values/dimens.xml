@@ -13,8 +13,19 @@
     <dimen name="ingredients">210dp</dimen>
     <dimen name="recipe_data">150dp</dimen>
 
-
     <dimen name="header">25sp</dimen>
     <dimen name="preview_text">20sp</dimen>
     <dimen name="text">15sp</dimen>
+
+
+    <!--auth-->
+    <dimen name="input_width">350dp</dimen>
+    <dimen name="login_button">250dp</dimen>
+    <dimen name="auth_header">50dp</dimen>
+    <dimen name="edit_text_padding">10dp</dimen>
+    <dimen name="redirect_size">15dp</dimen>
+
+    <dimen name="input_text_size">20sp</dimen>
+    <dimen name="auth_button_text_size">20sp</dimen>
+
 </resources>
