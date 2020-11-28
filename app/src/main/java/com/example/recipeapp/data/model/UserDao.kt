@@ -12,4 +12,7 @@ interface UserDao{
 
     @Query("SELECT COUNT(*) FROM users_table")
     fun getUsersCount(): Int
+
+    @Query("SELECT * FROM users_table WHERE username = :username LIMIT 1")
+    fun getUser(username: String): User
 }
