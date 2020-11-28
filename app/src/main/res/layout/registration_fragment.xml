@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorLightBackground"
+    tools:context=".ui.activity.AuthActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/out_margin"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/registration"
+        android:textColor="@color/colorCoffeeBrown"
+        android:textSize="@dimen/auth_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="@dimen/input_width"
+        android:padding="@dimen/edit_text_padding"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/out_margin"
+        android:background="@drawable/layout_border"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_vertical"
+        android:hint="@string/hint_email"
+        android:textColor="@color/colorCoffeeDark"
+        android:textColorHint="@color/colorLightBackground"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="@dimen/input_width"
+        android:padding="@dimen/edit_text_padding"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/out_margin"
+        android:background="@drawable/layout_border"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_vertical"
+        android:hint="@string/hint_username"
+        android:textColor="@color/colorCoffeeDark"
+        android:textColorHint="@color/colorLightBackground"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="@dimen/input_width"
+        android:padding="@dimen/edit_text_padding"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/out_margin"
+        android:background="@drawable/layout_border"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_vertical"
+        android:hint="@string/hint_password"
+        android:textColor="@color/colorCoffeeDark"
+        android:textColorHint="@color/colorLightBackground"
+        android:textSize="@dimen/input_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="@dimen/login_button"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/out_margin"
+        android:background="@drawable/layout_border"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center|center_vertical"
+        android:padding="@dimen/edit_text_padding"
+        android:text="@string/sign_up_button"
+        android:textAllCaps="false"
+        android:textColor="@color/colorCoffeeDark"
+        android:textSize="@dimen/auth_button_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <TextView
+        android:id="@+id/to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/redirect_size"
+        android:text="@string/redirect_to_login"
+        android:layout_marginTop="@dimen/out_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/colorCoffeeDark"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
