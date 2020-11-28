@@ -12,6 +12,7 @@
     <dimen name="app_icon_splash">120dp</dimen>
     <dimen name="ingredients">210dp</dimen>
     <dimen name="recipe_data">150dp</dimen>
+    <dimen name="footer_margin_bottom">15dp</dimen>
 
     <dimen name="header">25sp</dimen>
     <dimen name="preview_text">20sp</dimen>
@@ -19,6 +20,7 @@
 
 
     <!--auth-->
+    <dimen name="icon_margin_top">70dp</dimen>
     <dimen name="input_width">350dp</dimen>
     <dimen name="login_button">250dp</dimen>
     <dimen name="auth_header">50dp</dimen>
@@ -27,5 +29,17 @@
 
     <dimen name="input_text_size">20sp</dimen>
     <dimen name="auth_button_text_size">20sp</dimen>
+
+    <!--main menu-->
+    <dimen name="header_margin">50dp</dimen>
+    <dimen name="food_image">100dp</dimen>
+    <dimen name="bar_image">130dp</dimen>
+    <dimen name="item_out_margin">25dp</dimen>
+    <dimen name="item_padding">20dp</dimen>
+    <dimen name="profile_image">90dp</dimen>
+    <dimen name="profile_padding">10dp</dimen>
+
+    <dimen name="menu_item_text">25sp</dimen>
+    <dimen name="header_size">40sp</dimen>
 
 </resources>

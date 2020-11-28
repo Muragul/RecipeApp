@@ -17,4 +17,11 @@
     <string name="sign_up_button">Sign Up</string>
     <string name="redirect_to_login">Have an account? <u> Log In </u></string>
     <string name="redirect_to_sign_up">New to RecipeApp? <u> Create an account </u></string>
+
+    <!--main menu-->
+    <string name="menu_header">MENU</string>
+    <string name="menu_food">Food Recipes</string>
+    <string name="menu_bar">Cocktail Recipes</string>
+    <string name="menu_profile">Profile</string>
+    <string name="footer_text">© 2020 RecipeApp</string>
 </resources>

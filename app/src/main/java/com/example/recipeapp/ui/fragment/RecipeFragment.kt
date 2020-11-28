@@ -14,6 +14,7 @@ import com.example.recipeapp.databinding.RecipeListFragmentBinding
 import com.example.recipeapp.ui.adapter.RecipeAdapter
 import com.example.recipeapp.viewmodel.FoodRecipeListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.recipe_list_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

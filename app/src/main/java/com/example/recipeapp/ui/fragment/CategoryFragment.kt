@@ -13,6 +13,7 @@ import com.example.recipeapp.databinding.CategoriesFragmentBinding
 import com.example.recipeapp.ui.adapter.CategoryAdapter
 import com.example.recipeapp.viewmodel.FoodCategoryListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.categories_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CategoryFragment(val listener: CategoryAdapter.CategoryClickListener) : Fragment() {

@@ -16,7 +16,7 @@ class StartActivity : AppCompatActivity() {
             this.getSharedPreferences("current_user", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("current_user_name", null)
         if (username != null) {
-            val intent = Intent(this, FoodActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         } else {
             val intent = Intent(this, AuthActivity::class.java)

@@ -73,7 +73,7 @@ class AuthActivity : AppCompatActivity(), RegistrationFragment.RedirectToLogInCl
         val userEditor = sharedPreferences.edit()
         userEditor.putString("current_user_name", user.username)
         userEditor.apply()
-        val intent = Intent(this, FoodActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 
