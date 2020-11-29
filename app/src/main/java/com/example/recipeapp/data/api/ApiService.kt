@@ -1,8 +1,8 @@
 package com.example.recipeapp.data.api
 
-import com.example.recipeapp.data.model.CategoryResponse
-import com.example.recipeapp.data.model.MealResponse
-import com.example.recipeapp.data.model.RecipeResponse
+import com.example.recipeapp.data.model.food.CategoryResponse
+import com.example.recipeapp.data.model.food.MealResponse
+import com.example.recipeapp.data.model.food.RecipeResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET

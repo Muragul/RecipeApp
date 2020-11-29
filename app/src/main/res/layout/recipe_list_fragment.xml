@@ -9,14 +9,14 @@
 
         <variable
             name="viewmodel"
-            type="com.example.recipeapp.viewmodel.FoodRecipeListViewModel" />
+            type="com.example.recipeapp.viewmodel.food.FoodRecipeListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorLightBackground"
-        tools:context=".ui.activity.FoodActivity">
+        tools:context=".ui.activity.food.FoodActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

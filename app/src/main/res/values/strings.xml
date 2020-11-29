@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">RecipeApp</string>
+
+    <!-- food -->
     <string name="top_text">Recipe Categories</string>
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
@@ -7,6 +9,10 @@
     <string name="error_text">No data to display</string>
     <string name="category">Category:</string>
     <string name="country">Country:</string>
+
+    <!-- bar -->
+    <string name="bar_top_text">Categories</string>
+
 
     <!--auth-->
     <string name="registration">Registration</string>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.bar.BarDetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/out_margin">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_image"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:padding="@dimen/inner_margin"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/header"
+                app:layout_constraintBottom_toBottomOf="@+id/image"
+                app:layout_constraintStart_toStartOf="@id/image" />
+
+            <ImageView
+                android:id="@+id/save_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/save_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/image"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/textview1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/out_margin"
+                android:layout_marginTop="@dimen/inner_margin"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/ingredients"
+                android:textColor="@color/colorCoffeeDark"
+                android:textSize="@dimen/preview_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <TextView
+                android:id="@+id/ingredients"
+                android:layout_width="@dimen/ingredients"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/inner_margin"
+                android:background="@drawable/round_layout_light"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="@dimen/inner_margin"
+                android:textColor="@color/colorCoffeeDark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview1" />
+
+            <TextView
+                android:id="@+id/textview3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/inner_margin"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/category"
+                android:textColor="@color/colorCoffeeDark"
+                android:textSize="@dimen/preview_text"
+                app:layout_constraintStart_toStartOf="@id/category"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="@dimen/recipe_data"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/inner_margin"
+                android:background="@drawable/round_layout_light"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="@dimen/inner_margin"
+                android:textColor="@color/colorCoffeeDark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview1" />
+
+            <TextView
+                android:id="@+id/textview2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/out_margin"
+                android:layout_marginTop="@dimen/inner_margin"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/instructions"
+                android:textColor="@color/colorCoffeeDark"
+                android:textSize="@dimen/preview_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ingredients" />
+
+            <TextView
+                android:id="@+id/instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/inner_margin"
+                android:background="@drawable/round_layout_light"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="@dimen/inner_margin"
+                android:textColor="@color/colorCoffeeDark"
+                app:layout_constraintTop_toBottomOf="@id/textview2" />
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/back_icon"
+                android:layout_height="@dimen/back_icon"
+                android:layout_marginTop="@dimen/inner_margin"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/inner_margin"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

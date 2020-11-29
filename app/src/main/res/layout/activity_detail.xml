@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.DetailActivity">
+    tools:context=".ui.activity.food.DetailActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,6 +27,10 @@
 
             <TextView
                 android:id="@+id/title"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-medium"
@@ -35,6 +39,14 @@
                 android:textSize="@dimen/header"
                 app:layout_constraintBottom_toBottomOf="@+id/image"
                 app:layout_constraintStart_toStartOf="@id/image" />
+
+            <ImageView
+                android:id="@+id/save_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/save_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/image"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/textview1"

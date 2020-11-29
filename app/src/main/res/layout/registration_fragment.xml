@@ -5,10 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLightBackground"
-    tools:context=".ui.activity.AuthActivity">
+    tools:context=".ui.activity.auth.AuthActivity">
 
     <TextView
         android:id="@+id/textView"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/out_margin"

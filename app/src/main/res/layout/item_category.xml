@@ -7,7 +7,7 @@
 
         <variable
             name="itemData"
-            type="com.example.recipeapp.data.model.Category" />
+            type="com.example.recipeapp.data.model.food.Category" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
