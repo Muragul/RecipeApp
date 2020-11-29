@@ -7,7 +7,7 @@
     android:background="@color/colorLightBackground"
     android:orientation="vertical"
     android:paddingTop="@dimen/icon_margin_top"
-    tools:context=".ui.activity.FoodActivity">
+    tools:context=".ui.activity.food.FoodActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
