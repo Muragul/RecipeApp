@@ -72,6 +72,7 @@ class AuthActivity : AppCompatActivity(), RegistrationFragment.RedirectToLogInCl
             this.getSharedPreferences("current_user", Context.MODE_PRIVATE)
         val userEditor = sharedPreferences.edit()
         userEditor.putString("current_user_name", user.username)
+        userEditor.putString("current_email", user.email)
         userEditor.apply()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

@@ -12,16 +12,15 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.ProfileActivity"></activity>
         <activity android:name=".ui.activity.AuthActivity">
+        </activity>
+        <activity android:name=".ui.activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ui.activity.StartActivity">
-
-
         </activity>
         <activity android:name=".ui.activity.DetailActivity" />
         <activity android:name=".ui.activity.MainActivity" />

@@ -24,4 +24,7 @@
     <string name="menu_bar">Cocktail Recipes</string>
     <string name="menu_profile">Profile</string>
     <string name="footer_text">© 2020 RecipeApp</string>
+
+    <!-- profile page -->
+    <string name="profile_header">Profile</string>
 </resources>
