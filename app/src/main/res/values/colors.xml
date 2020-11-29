@@ -6,4 +6,6 @@
     <color name="colorCoffeeBrown">#854e4b</color>
     <color name="colorCoffeeDark">#784643</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorPrimary">#f6ded4</color>
+    <color name="colorPrimaryDark">#f6ded4</color>
 </resources>

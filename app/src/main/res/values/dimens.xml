@@ -42,4 +42,11 @@
     <dimen name="menu_item_text">25sp</dimen>
     <dimen name="header_size">40sp</dimen>
 
+    <!--profile page-->
+    <dimen name="profile_photo">110dp</dimen>
+    <dimen name="photo_margin">10dp</dimen>
+    <dimen name="photo_padding">10dp</dimen>
+
+    <dimen name="profile_header">25sp</dimen>
+
 </resources>
