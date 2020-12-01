@@ -10,7 +10,10 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.recipeapp.R
+import com.example.recipeapp.data.model.user.RecentRecipeList
+import com.example.recipeapp.data.model.user.SavedRecipeList
 import com.example.recipeapp.viewmodel.bar.BarRecipeDetailsViewModel
+import kotlinx.android.synthetic.main.activity_bar_detail.save_icon
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class BarDetailActivity : AppCompatActivity() {
@@ -40,6 +43,19 @@ class BarDetailActivity : AppCompatActivity() {
             barRecipeDetailsViewModel.getBarRecipeDetails(id)
             barRecipeDetailsViewModel.getBarRecipeDetails(id).observe(this, Observer {
                 val response = it.drinks[0]
+                RecentRecipeList.addBarRecipe(response)
+                if (SavedRecipeList.checkBarRecipeInList(response))
+                    Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
+                save_icon.setOnClickListener {
+                    if (SavedRecipeList.checkBarRecipeInList(response)) {
+                        Glide.with(this).load(R.drawable.save_icon).into(save_icon)
+                        SavedRecipeList.removeBarRecipeFromList(response)
+                    } else {
+                        Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
+                        SavedRecipeList.addBarRecipe(response)
+                    }
+                }
+
                 title.text = response.strDrink
                 Glide.with(this).load(response.strDrinkThumb).into(image)
                 instructions.text = response.strInstructions

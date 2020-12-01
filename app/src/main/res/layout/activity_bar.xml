@@ -28,10 +28,6 @@
             android:layout_marginTop="@dimen/out_margin"
             android:fontFamily="sans-serif-condensed-medium"
             android:paddingBottom="@dimen/out_margin"
-            android:shadowColor="@android:color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
             android:text="@string/bar_top_text"
             android:textColor="@color/colorCoffeeBrown"
             android:textSize="@dimen/header" />

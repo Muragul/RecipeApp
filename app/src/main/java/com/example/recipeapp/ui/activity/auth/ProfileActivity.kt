@@ -5,19 +5,33 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.recipeapp.R
+import com.example.recipeapp.data.model.bar.Drink
+import com.example.recipeapp.data.model.food.Meal
 import com.example.recipeapp.ui.activity.StartActivity
+import com.example.recipeapp.ui.activity.bar.BarDetailActivity
+import com.example.recipeapp.ui.activity.food.DetailActivity
+import com.example.recipeapp.ui.adapter.user.BarRecipeAdapter
+import com.example.recipeapp.ui.adapter.user.FoodRecipeAdapter
+import com.example.recipeapp.ui.adapter.user.RecentRecipeAdapter
 import com.example.recipeapp.ui.fragment.user.BarFragment
 import com.example.recipeapp.ui.fragment.user.FoodFragment
 import kotlinx.android.synthetic.main.activity_profile.*
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity(), FoodRecipeAdapter.FoodRecipeClickListener,
+    BarRecipeAdapter.BarRecipeClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        recycler_view.layoutManager = StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL)
+        recycler_view.adapter = RecentRecipeAdapter(this)
 
         val sharedPreferences: SharedPreferences =
             this.getSharedPreferences("current_user", Context.MODE_PRIVATE)
@@ -33,8 +47,8 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(FoodFragment(), "Food Recipes")
-        adapter.addFragment(BarFragment(), "Cocktail Recipes")
+        adapter.addFragment(FoodFragment(this), "Food Recipes")
+        adapter.addFragment(BarFragment(this), "Cocktail Recipes")
         view_pager.adapter = adapter
         tabs.setupWithViewPager(view_pager)
 
@@ -61,5 +75,17 @@ class ProfileActivity : AppCompatActivity() {
             return titleList[position]
         }
 
+    }
+
+    override fun foodRecipeClicked(post: Meal) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("idMeal", post.idMeal)
+        startActivity(intent)
+    }
+
+    override fun barRecipeClicked(post: Drink) {
+        val intent = Intent(this, BarDetailActivity::class.java)
+        intent.putExtra("idDrink", post.idDrink)
+        startActivity(intent)
     }
 }
