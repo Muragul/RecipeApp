@@ -10,7 +10,10 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.recipeapp.R
+import com.example.recipeapp.data.model.user.RecentRecipeList
+import com.example.recipeapp.data.model.user.SavedRecipeList
 import com.example.recipeapp.viewmodel.food.RecipeDetailsViewModel
+import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
@@ -41,6 +44,18 @@ class DetailActivity : AppCompatActivity() {
             recipeDetailsViewModel.getRecipeDetails(id)
             recipeDetailsViewModel.getRecipeDetails(id).observe(this, Observer {
                 val response = it.meals[0]
+                RecentRecipeList.addFoodRecipe(response)
+                if (SavedRecipeList.checkFoodRecipeInList(response))
+                    Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
+                save_icon.setOnClickListener {
+                    if (SavedRecipeList.checkFoodRecipeInList(response)) {
+                        Glide.with(this).load(R.drawable.save_icon).into(save_icon)
+                        SavedRecipeList.removeFoodRecipeFromList(response)
+                    } else {
+                        Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
+                        SavedRecipeList.addFoodRecipe(response)
+                    }
+                }
                 title.text = response.strMeal
                 Glide.with(this).load(response.strMealThumb).into(image)
                 instructions.text = response.strInstructions

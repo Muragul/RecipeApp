@@ -19,7 +19,7 @@
             android:padding="@dimen/inner_margin"
             android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/header"
@@ -31,60 +31,60 @@
             android:text="@string/profile_header"
             android:textColor="@color/colorCoffeeBrown"
             android:textSize="@dimen/profile_header"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/back"/>
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logout_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:padding="5dp"
-            android:background="@drawable/round_layout_light"
-            android:layout_marginEnd="@dimen/inner_margin"
             android:layout_marginTop="@dimen/out_margin"
+            android:layout_marginEnd="@dimen/inner_margin"
+            android:background="@drawable/round_layout_light"
+            android:padding="5dp"
             android:src="@drawable/logout"
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/profile_photo"
-        android:layout_height="@dimen/profile_photo"
-        android:layout_margin="@dimen/photo_margin"
-        android:background="@drawable/profile_photo_round"
-        android:padding="@dimen/photo_padding"
-        android:src="@drawable/app_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/profile_photo"
+            android:layout_height="@dimen/profile_photo"
+            android:layout_margin="@dimen/photo_margin"
+            android:background="@drawable/profile_photo_round"
+            android:padding="@dimen/photo_padding"
+            android:src="@drawable/app_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/photo_margin"
-            android:textSize="20sp"
             android:text="username"
             android:textColor="@color/colorCoffeeDark"
+            android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/photo_margin"
-            android:textSize="15sp"
-            android:textColor="@color/colorCoffeeDark"
             android:text="email"
+            android:textColor="@color/colorCoffeeDark"
+            android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@id/username"/>
+            app:layout_constraintTop_toBottomOf="@id/username" />
 
         <TextView
             android:id="@+id/change_button"
@@ -103,13 +103,32 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recent:"
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:textColor="@color/colorCoffeeBrown"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/change_button" />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabGravity="fill"
-        app:tabSelectedTextColor="@color/colorCoffeeDark"
-        app:tabMode="fixed" />
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorCoffeeDark" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
