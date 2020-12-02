@@ -1,6 +1,7 @@
 package com.example.recipeapp.ui.activity.food
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,16 +9,27 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.recipeapp.R
+import com.example.recipeapp.data.model.food.Meal
 import com.example.recipeapp.data.model.user.RecentRecipeList
 import com.example.recipeapp.data.model.user.SavedRecipeList
+import com.example.recipeapp.ui.adapter.user.FoodRecipeAdapter
+import com.example.recipeapp.ui.adapter.user.RecentRecipeAdapter
 import com.example.recipeapp.viewmodel.food.RecipeDetailsViewModel
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(), FoodRecipeAdapter.FoodRecipeClickListener {
     private val recipeDetailsViewModel: RecipeDetailsViewModel by viewModel()
+
+    override fun foodRecipeClicked(post: Meal) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("idMeal", post.idMeal)
+        startActivity(intent)
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,6 +90,11 @@ class DetailActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(this, "Error connection", Toast.LENGTH_SHORT).show()
         }
+
+        recycler_view.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recycler_view.adapter = RecentRecipeAdapter(this)
+
 
     }
 }

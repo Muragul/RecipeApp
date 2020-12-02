@@ -30,7 +30,7 @@ class RecentRecipeAdapter(val listener: FoodRecipeAdapter.FoodRecipeClickListene
             false
         )
         val params = RecyclerView.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         view.layoutParams = params

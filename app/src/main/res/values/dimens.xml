@@ -43,7 +43,7 @@
     <dimen name="header_size">40sp</dimen>
 
     <!--profile page-->
-    <dimen name="profile_photo">110dp</dimen>
+    <dimen name="profile_photo">150dp</dimen>
     <dimen name="photo_margin">10dp</dimen>
     <dimen name="photo_padding">10dp</dimen>
 

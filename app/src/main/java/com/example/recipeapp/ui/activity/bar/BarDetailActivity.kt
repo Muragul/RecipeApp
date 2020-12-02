@@ -8,12 +8,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.example.recipeapp.R
 import com.example.recipeapp.data.model.user.RecentRecipeList
 import com.example.recipeapp.data.model.user.SavedRecipeList
+import com.example.recipeapp.ui.adapter.user.RecentRecipeAdapter
 import com.example.recipeapp.viewmodel.bar.BarRecipeDetailsViewModel
 import kotlinx.android.synthetic.main.activity_bar_detail.save_icon
+import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class BarDetailActivity : AppCompatActivity() {
@@ -23,6 +27,7 @@ class BarDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bar_detail)
+
         val id: String = intent.getStringExtra("idDrink")!!
         val image: ImageView = findViewById(R.id.image)
         val title: TextView = findViewById(R.id.title)
