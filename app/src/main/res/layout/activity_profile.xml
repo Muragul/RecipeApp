@@ -48,15 +48,21 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/myCardView"
+        android:layout_gravity="center_horizontal"
         android:layout_width="@dimen/profile_photo"
         android:layout_height="@dimen/profile_photo"
-        android:layout_margin="@dimen/photo_margin"
-        android:background="@drawable/profile_photo_round"
-        android:padding="@dimen/photo_padding"
-        android:src="@drawable/app_icon"
-        android:layout_gravity="center_horizontal" />
+        app:cardCornerRadius="180dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:src="@drawable/app_icon"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightBackground"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
