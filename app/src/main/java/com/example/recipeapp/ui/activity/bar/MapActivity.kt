@@ -97,11 +97,11 @@ class MapActivity : FragmentActivity(), OnMapReadyCallback {
         list.add(bar)
         list.add(bar1)
         list.add(bar2)
-        list.add(bar3)
         list.add(bar4)
         list.add(bar5)
         list.add(bar6)
         list.add(bar7)
+        list.add(bar3)
         return list
     }
 }

@@ -72,19 +72,43 @@ class DetailActivity : AppCompatActivity(), FoodRecipeAdapter.FoodRecipeClickLis
                 instructions.text = response.strInstructions
                 category.text = response.strCategory
                 country.text = response.strArea
-                ingredients.text =
-                    response.strIngredient1 + response.strMeasure1 + "\n" +
-                            response.strIngredient2 + response.strMeasure2 + "\n" +
-                            response.strIngredient3 + response.strMeasure3 + "\n" +
-                            response.strIngredient4 + response.strMeasure4 + "\n" +
-                            response.strIngredient5 + response.strMeasure5 + "\n" +
-                            response.strIngredient6 + response.strMeasure6 + "\n" +
-                            response.strIngredient7 + response.strMeasure7 + "\n" +
-                            response.strIngredient8 + response.strMeasure8 + "\n" +
-                            response.strIngredient9 + response.strMeasure9 + "\n" +
-                            response.strIngredient10 + response.strMeasure10 + "\n" +
-                            response.strIngredient11 + response.strMeasure11 + "\n" +
-                            response.strIngredient12 + response.strMeasure12 + "\n"
+                var ingredientsText = ""
+                if (response.strIngredient1 != null || response.strMeasure1 != null) {
+                    ingredientsText += response.strIngredient1 + " " + response.strMeasure1 + "\n"
+                    if (response.strIngredient2 != null || response.strMeasure2 != null) {
+                        ingredientsText += response.strIngredient2 + " " + response.strMeasure2 + "\n"
+                        if (response.strIngredient3 != null || response.strMeasure3 != null) {
+                            ingredientsText += response.strIngredient3 + " " + response.strMeasure3 + "\n"
+                            if (response.strIngredient4 != null || response.strMeasure4 != null) {
+                                ingredientsText += response.strIngredient4 + " " + response.strMeasure4 + "\n"
+                                if (response.strIngredient5 != null || response.strMeasure5 != null) {
+                                    ingredientsText += response.strIngredient5 + " " + response.strMeasure5 + "\n"
+                                    if (response.strIngredient6 != null || response.strMeasure6 != null) {
+                                        ingredientsText += response.strIngredient6 + " " + response.strMeasure6 + "\n"
+                                        if (response.strIngredient7 != null || response.strMeasure7 != null) {
+                                            ingredientsText += response.strIngredient7 + " " + response.strMeasure7 + "\n"
+                                            if (response.strIngredient8 != null || response.strMeasure8 != null) {
+                                                ingredientsText += response.strIngredient8 + " " + response.strMeasure8 + "\n"
+                                                if (response.strIngredient9 != null || response.strMeasure9 != null) {
+                                                    ingredientsText += response.strIngredient9 + " " + response.strMeasure9 + "\n"
+                                                    if (response.strIngredient10 != null || response.strMeasure10 != null) {
+                                                        ingredientsText += response.strIngredient10 + " " + response.strMeasure10 + "\n"
+                                                        if (response.strIngredient11 != null || response.strMeasure11 != null) {
+                                                            ingredientsText += response.strIngredient11 + " " + response.strMeasure11 + "\n"
+                                                            if (response.strIngredient12 != null || response.strMeasure12 != null)
+                                                                ingredientsText += response.strIngredient12 + " " + response.strMeasure12 + "\n"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                ingredients.text = ingredientsText
             })
         } catch (e: Exception) {
             Toast.makeText(this, "Error connection", Toast.LENGTH_SHORT).show()
