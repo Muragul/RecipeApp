@@ -1,6 +1,7 @@
 package com.example.recipeapp.ui.activity.bar
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,18 +10,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.example.recipeapp.R
+import com.example.recipeapp.data.model.bar.Drink
 import com.example.recipeapp.data.model.user.RecentRecipeList
 import com.example.recipeapp.data.model.user.SavedRecipeList
-import com.example.recipeapp.ui.adapter.user.RecentRecipeAdapter
+import com.example.recipeapp.ui.adapter.user.BarRecipeAdapter
+import com.example.recipeapp.ui.adapter.user.RecentBarRecipeAdapter
 import com.example.recipeapp.viewmodel.bar.BarRecipeDetailsViewModel
 import kotlinx.android.synthetic.main.activity_bar_detail.save_icon
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class BarDetailActivity : AppCompatActivity() {
+class BarDetailActivity : AppCompatActivity(), BarRecipeAdapter.BarRecipeClickListener {
     private val barRecipeDetailsViewModel: BarRecipeDetailsViewModel by viewModel()
 
     @SuppressLint("SetTextI18n")
@@ -40,9 +42,7 @@ class BarDetailActivity : AppCompatActivity() {
         val options: Int = View.SYSTEM_UI_FLAG_FULLSCREEN
         decorView.systemUiVisibility = options
 
-        back.setOnClickListener {
-            onBackPressed()
-        }
+        back.setOnClickListener { onBackPressed() }
 
         try {
             barRecipeDetailsViewModel.getBarRecipeDetails(id)
@@ -82,6 +82,18 @@ class BarDetailActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(this, "Error connection", Toast.LENGTH_SHORT).show()
         }
+
+        recycler_view.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recycler_view.adapter = RecentBarRecipeAdapter(this)
+
+
+    }
+
+    override fun barRecipeClicked(post: Drink) {
+        val intent = Intent(this, BarDetailActivity::class.java)
+        intent.putExtra("idDrink", post.idDrink)
+        startActivity(intent)
 
     }
 
