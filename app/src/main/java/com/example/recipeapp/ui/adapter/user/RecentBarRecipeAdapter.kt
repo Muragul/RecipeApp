@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.recipeapp.R
 import com.example.recipeapp.data.model.bar.Drink
 import com.example.recipeapp.data.model.user.RecentRecipeList
-import kotlinx.android.synthetic.main.recent_food_item.view.*
+import kotlinx.android.synthetic.main.recent_bar_item.view.*
 
 class RecentBarRecipeAdapter(val listener: BarRecipeAdapter.BarRecipeClickListener) :
     RecyclerView.Adapter<RecentBarRecipeAdapter.PostViewHolder>() {
@@ -26,7 +26,7 @@ class RecentBarRecipeAdapter(val listener: BarRecipeAdapter.BarRecipeClickListen
         val view = LayoutInflater.from(
             parent.context
         ).inflate(
-            R.layout.recent_food_item,
+            R.layout.recent_bar_item,
             parent,
             false
         )
@@ -43,6 +43,6 @@ class RecentBarRecipeAdapter(val listener: BarRecipeAdapter.BarRecipeClickListen
     }
 
     override fun getItemCount(): Int {
-        return RecentRecipeList.recentFoodRecipeList.size
+        return RecentRecipeList.recentBarRecipeList.size
     }
 }

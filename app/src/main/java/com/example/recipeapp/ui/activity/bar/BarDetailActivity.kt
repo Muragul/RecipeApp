@@ -18,8 +18,7 @@ import com.example.recipeapp.data.model.user.SavedRecipeList
 import com.example.recipeapp.ui.adapter.user.BarRecipeAdapter
 import com.example.recipeapp.ui.adapter.user.RecentBarRecipeAdapter
 import com.example.recipeapp.viewmodel.bar.BarRecipeDetailsViewModel
-import kotlinx.android.synthetic.main.activity_bar_detail.save_icon
-import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.activity_bar_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class BarDetailActivity : AppCompatActivity(), BarRecipeAdapter.BarRecipeClickListener {

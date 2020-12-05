@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorLightBackground"
     android:orientation="vertical"
     tools:context=".ui.activity.bar.BarActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -16,22 +17,34 @@
             android:id="@+id/back"
             android:layout_width="@dimen/back_icon"
             android:layout_height="@dimen/back_icon"
-            android:layout_marginTop="@dimen/inner_margin"
             android:padding="@dimen/inner_margin"
-            android:src="@drawable/back" />
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/inner_margin"
-            android:layout_marginTop="@dimen/out_margin"
+            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:paddingBottom="@dimen/out_margin"
             android:text="@string/bar_top_text"
             android:textColor="@color/colorCoffeeBrown"
-            android:textSize="@dimen/header" />
-    </LinearLayout>
+            android:textSize="@dimen/header"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/view_map"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/map_icon"
+            android:layout_marginEnd="@dimen/inner_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/fragment"
