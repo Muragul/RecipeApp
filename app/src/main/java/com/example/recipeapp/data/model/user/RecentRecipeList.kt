@@ -4,8 +4,21 @@ import com.example.recipeapp.data.model.bar.Drink
 import com.example.recipeapp.data.model.food.Meal
 
 object RecentRecipeList {
-    val recentFoodRecipeList: MutableList<Meal> = ArrayList()
-    val recentBarRecipeList: MutableList<Drink> = ArrayList()
+    var recentFoodRecipeList: MutableList<Meal> = ArrayList()
+    var recentBarRecipeList: MutableList<Drink> = ArrayList()
+
+    fun clearRecipeList(){
+        recentFoodRecipeList = ArrayList()
+        recentBarRecipeList = ArrayList()
+    }
+
+    fun initFoodRecipeList(foodList: ArrayList<Meal>) {
+        recentFoodRecipeList = foodList
+    }
+
+    fun initBarRecipeList(barList: ArrayList<Drink>) {
+        recentBarRecipeList = barList
+    }
 
     fun addFoodRecipe(recipe: Meal) {
         recentFoodRecipeList.add(recipe)

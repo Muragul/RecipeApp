@@ -3,14 +3,16 @@ package com.example.recipeapp.data.model.bar
 import com.google.gson.annotations.SerializedName
 
 data class Drink(
+    @SerializedName("dateModified") val dateModified: String,
     @SerializedName("idDrink") val idDrink: String,
-    @SerializedName("strDrink") val strDrink: String,
-    @SerializedName("strDrinkAlternate") val strDrinkAlternate: String?,
-    @SerializedName("strCategory") val strCategory: String,
     @SerializedName("strAlcoholic") val strAlcoholic: String,
-    @SerializedName("strGlass") val strGlass: String,
-    @SerializedName("strInstructions") val strInstructions: String,
+    @SerializedName("strCategory") val strCategory: String,
+    @SerializedName("strCreativeCommonsConfirmed") val strCreativeCommonsConfirmed: String?,
+    @SerializedName("strDrink") val strDrink: String,
     @SerializedName("strDrinkThumb") val strDrinkThumb: String,
+    @SerializedName("strGlass") val strGlass: String,
+    @SerializedName("strDrinkAlternate") val strDrinkAlternate: String?,
+    @SerializedName("strInstructions") val strInstructions: String,
     @SerializedName("strTags") val strTags: String,
     @SerializedName("strIngredient1") val strIngredient1: String?,
     @SerializedName("strIngredient2") val strIngredient2: String?,
@@ -41,7 +43,5 @@ data class Drink(
     @SerializedName("strMeasure12") val strMeasure12: String?,
     @SerializedName("strMeasure13") val strMeasure13: String?,
     @SerializedName("strMeasure14") val strMeasure14: String?,
-    @SerializedName("strMeasure15") val strMeasure15: String?,
-    @SerializedName("strCreativeCommonsConfirmed") val strCreativeCommonsConfirmed: String?,
-    @SerializedName("dateModified") val dateModified: String
+    @SerializedName("strMeasure15") val strMeasure15: String?
 )

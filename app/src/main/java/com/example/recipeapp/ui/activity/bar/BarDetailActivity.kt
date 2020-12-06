@@ -1,7 +1,9 @@
 package com.example.recipeapp.ui.activity.bar
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,6 +20,7 @@ import com.example.recipeapp.data.model.user.SavedRecipeList
 import com.example.recipeapp.ui.adapter.user.BarRecipeAdapter
 import com.example.recipeapp.ui.adapter.user.RecentBarRecipeAdapter
 import com.example.recipeapp.viewmodel.bar.BarRecipeDetailsViewModel
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_bar_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -48,8 +51,21 @@ class BarDetailActivity : AppCompatActivity(), BarRecipeAdapter.BarRecipeClickLi
             barRecipeDetailsViewModel.getBarRecipeDetails(id).observe(this, Observer {
                 val response = it.drinks[0]
                 RecentRecipeList.addBarRecipe(response)
+
+                val sharedPreferences: SharedPreferences =
+                    this.getSharedPreferences("current_user", Context.MODE_PRIVATE)
+                val username = sharedPreferences.getString("current_user_name", null)
+                val sharedPreferencesRecipeLists: SharedPreferences =
+                    this.getSharedPreferences(username, Context.MODE_PRIVATE)
+                val userEditor = sharedPreferencesRecipeLists.edit()
+
+                val recentBarList = Gson().toJson(RecentRecipeList.recentBarRecipeList)
+                userEditor.putString("recent_bar_recipe_list", recentBarList)
+                userEditor.apply()
+
                 if (SavedRecipeList.checkBarRecipeInList(response))
                     Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
+
                 save_icon.setOnClickListener {
                     if (SavedRecipeList.checkBarRecipeInList(response)) {
                         Glide.with(this).load(R.drawable.save_icon).into(save_icon)
@@ -58,6 +74,9 @@ class BarDetailActivity : AppCompatActivity(), BarRecipeAdapter.BarRecipeClickLi
                         Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
                         SavedRecipeList.addBarRecipe(response)
                     }
+                    val barList = Gson().toJson(SavedRecipeList.barRecipeList)
+                    userEditor.putString("bar_recipe_list", barList)
+                    userEditor.apply()
                 }
 
                 title.text = response.strDrink
