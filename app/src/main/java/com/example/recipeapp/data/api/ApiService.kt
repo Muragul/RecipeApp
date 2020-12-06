@@ -15,11 +15,14 @@ interface ApiService {
 
     @GET("filter.php")
     fun getPostListByCategoryAsync(
-        @Query("c")strCategory: String
+        @Query("c") strCategory: String
     ): Deferred<Response<RecipeResponse>>
 
     @GET("lookup.php")
     fun getRecipeAsync(
-        @Query("i")idMeal: String
+        @Query("i") idMeal: String
     ): Deferred<Response<MealResponse>>
+
+    @GET("random.php")
+    fun getRandomRecipeAsync(): Deferred<Response<MealResponse>>
 }
