@@ -7,6 +7,7 @@ import com.example.recipeapp.data.repository.bar.BarCategoryListDataStore
 import com.example.recipeapp.data.repository.bar.BarRecipeDetailsDataStore
 import com.example.recipeapp.data.repository.bar.BarRecipeListDataStore
 import com.example.recipeapp.data.repository.food.CategoryListDataStore
+import com.example.recipeapp.data.repository.food.RandomRecipeDataStore
 import com.example.recipeapp.data.repository.food.RecipeDetailsDataStore
 import com.example.recipeapp.data.repository.food.RecipeListDataStore
 import com.example.recipeapp.domain.usecase.*
@@ -15,6 +16,7 @@ import com.example.recipeapp.viewmodel.bar.BarRecipeDetailsViewModel
 import com.example.recipeapp.viewmodel.bar.BarRecipeListViewModel
 import com.example.recipeapp.viewmodel.food.FoodCategoryListViewModel
 import com.example.recipeapp.viewmodel.food.FoodRecipeListViewModel
+import com.example.recipeapp.viewmodel.food.RandomRecipeViewModel
 import com.example.recipeapp.viewmodel.food.RecipeDetailsViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
@@ -33,6 +35,7 @@ val viewModelModule = module {
     viewModel { BarCategoryListViewModel(get()) }
     viewModel { BarRecipeListViewModel(get()) }
     viewModel { BarRecipeDetailsViewModel(get()) }
+    viewModel { RandomRecipeViewModel(get()) }
 }
 
 val useCaseModule = module {
@@ -42,6 +45,7 @@ val useCaseModule = module {
     single { GetBarCategoryListUseCase(get<BarCategoryListDataStore>()) }
     single { GetBarRecipeListUseCase(get<BarRecipeListDataStore>()) }
     single { GetBarRecipeDetailsUseCase(get<BarRecipeDetailsDataStore>()) }
+    single { GetRandomRecipeUseCase(get<RandomRecipeDataStore>()) }
 }
 
 val repositoryModule = module {
@@ -51,6 +55,7 @@ val repositoryModule = module {
     single { BarCategoryListDataStore(get()) }
     single { BarRecipeListDataStore(get()) }
     single { BarRecipeDetailsDataStore(get()) }
+    single { RandomRecipeDataStore(get()) }
 }
 
 val sharedPrefModule = module {
