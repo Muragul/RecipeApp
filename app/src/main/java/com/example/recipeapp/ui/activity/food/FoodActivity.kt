@@ -14,7 +14,6 @@ import com.example.recipeapp.ui.adapter.food.CategoryAdapter
 import com.example.recipeapp.ui.fragment.food.CategoryFragment
 import com.example.recipeapp.ui.fragment.food.RecipeFragment
 import com.example.recipeapp.viewmodel.food.RandomRecipeViewModel
-import com.example.recipeapp.viewmodel.food.RecipeDetailsViewModel
 import kotlinx.android.synthetic.main.activity_food.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
