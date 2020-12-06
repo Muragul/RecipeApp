@@ -101,10 +101,6 @@ class AuthActivity : AppCompatActivity(), RegistrationFragment.RedirectToLogInCl
         }
     }
 
-    private fun noSuchUserToast() {
-        Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
-    }
-
     private fun initRecipeLists() {
         val sharedPreferences: SharedPreferences =
             this.getSharedPreferences("current_user", Context.MODE_PRIVATE)

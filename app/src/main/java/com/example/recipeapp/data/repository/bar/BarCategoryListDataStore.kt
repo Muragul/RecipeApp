@@ -3,7 +3,7 @@ package com.example.recipeapp.data.repository.bar
 import androidx.lifecycle.LiveData
 import com.example.recipeapp.data.api.BarApiService
 import com.example.recipeapp.data.model.bar.BarCategory
-import com.example.recipeapp.domain.repository.BarCategoryListRepository
+import com.example.recipeapp.domain.repository.bar.BarCategoryListRepository
 
 class BarCategoryListDataStore(barApiService: BarApiService) : BarCategoryListRepository,
     BaseBarDataStore(barApiService) {

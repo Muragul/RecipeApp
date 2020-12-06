@@ -1,8 +1,8 @@
-package com.example.recipeapp.domain.usecase
+package com.example.recipeapp.domain.usecase.food
 
 import androidx.lifecycle.LiveData
 import com.example.recipeapp.data.model.food.MealResponse
-import com.example.recipeapp.domain.repository.RecipeDetailsRepository
+import com.example.recipeapp.domain.repository.food.RecipeDetailsRepository
 
 class GetRecipeDetailsUseCase(private val recipeDetailsRepository: RecipeDetailsRepository) {
     fun getRecipeDetails(strMeal: String): LiveData<MealResponse>{

@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.food_favorites_item.view.*
 class BarRecipeAdapter(val listener: BarRecipeClickListener) :
     RecyclerView.Adapter<BarRecipeAdapter.PostViewHolder>() {
 
-
     inner class PostViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(post: Drink) {
             Glide.with(view.context).load(post.strDrinkThumb).into(view.image)

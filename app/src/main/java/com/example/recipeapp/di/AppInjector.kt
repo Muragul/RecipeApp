@@ -10,7 +10,13 @@ import com.example.recipeapp.data.repository.food.CategoryListDataStore
 import com.example.recipeapp.data.repository.food.RandomRecipeDataStore
 import com.example.recipeapp.data.repository.food.RecipeDetailsDataStore
 import com.example.recipeapp.data.repository.food.RecipeListDataStore
-import com.example.recipeapp.domain.usecase.*
+import com.example.recipeapp.domain.usecase.bar.GetBarCategoryListUseCase
+import com.example.recipeapp.domain.usecase.bar.GetBarRecipeDetailsUseCase
+import com.example.recipeapp.domain.usecase.bar.GetBarRecipeListUseCase
+import com.example.recipeapp.domain.usecase.food.GetCategoryListUseCase
+import com.example.recipeapp.domain.usecase.food.GetRandomRecipeUseCase
+import com.example.recipeapp.domain.usecase.food.GetRecipeDetailsUseCase
+import com.example.recipeapp.domain.usecase.food.GetRecipeListUseCase
 import com.example.recipeapp.viewmodel.bar.BarCategoryListViewModel
 import com.example.recipeapp.viewmodel.bar.BarRecipeDetailsViewModel
 import com.example.recipeapp.viewmodel.bar.BarRecipeListViewModel

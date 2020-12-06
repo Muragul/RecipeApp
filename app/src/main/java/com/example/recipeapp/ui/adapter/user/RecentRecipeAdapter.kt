@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.recent_food_item.view.*
 
 class RecentRecipeAdapter(val listener: FoodRecipeAdapter.FoodRecipeClickListener) :
     RecyclerView.Adapter<RecentRecipeAdapter.PostViewHolder>() {
+
     inner class PostViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(post: Meal) {
             Glide.with(view.context).load(post.strMealThumb).into(view.recent_image)

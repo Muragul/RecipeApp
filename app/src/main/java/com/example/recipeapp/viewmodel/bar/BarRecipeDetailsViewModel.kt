@@ -2,7 +2,7 @@ package com.example.recipeapp.viewmodel.bar
 
 import androidx.lifecycle.LiveData
 import com.example.recipeapp.data.model.bar.DrinkResponse
-import com.example.recipeapp.domain.usecase.GetBarRecipeDetailsUseCase
+import com.example.recipeapp.domain.usecase.bar.GetBarRecipeDetailsUseCase
 import com.example.recipeapp.viewmodel.BaseViewModel
 
 class BarRecipeDetailsViewModel(private val getBarRecipeDetailsUseCase: GetBarRecipeDetailsUseCase) :

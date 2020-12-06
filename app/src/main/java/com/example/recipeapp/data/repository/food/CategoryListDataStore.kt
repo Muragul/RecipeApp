@@ -3,7 +3,7 @@ package com.example.recipeapp.data.repository.food
 import androidx.lifecycle.LiveData
 import com.example.recipeapp.data.api.ApiService
 import com.example.recipeapp.data.model.food.Category
-import com.example.recipeapp.domain.repository.CategoryListRepository
+import com.example.recipeapp.domain.repository.food.CategoryListRepository
 
 class CategoryListDataStore(apiService: ApiService) : CategoryListRepository,
     BaseDataStore(apiService) {
