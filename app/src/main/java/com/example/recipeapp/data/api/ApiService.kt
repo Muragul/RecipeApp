@@ -25,4 +25,7 @@ interface ApiService {
 
     @GET("random.php")
     fun getRandomRecipeAsync(): Deferred<Response<MealResponse>>
+
+    @GET("filter.php")
+    fun searchForRecipeAsync(@Query("i") ingredient: String): Deferred<Response<RecipeResponse>>
 }
