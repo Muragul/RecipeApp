@@ -1,7 +1,9 @@
 package com.example.recipeapp.ui.activity.food
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebViewClient
@@ -19,6 +21,7 @@ import com.example.recipeapp.data.model.user.SavedRecipeList
 import com.example.recipeapp.ui.adapter.user.FoodRecipeAdapter
 import com.example.recipeapp.ui.adapter.user.RecentRecipeAdapter
 import com.example.recipeapp.viewmodel.food.RecipeDetailsViewModel
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -55,6 +58,18 @@ class DetailActivity : AppCompatActivity(), FoodRecipeAdapter.FoodRecipeClickLis
             recipeDetailsViewModel.getRecipeDetails(id).observe(this, Observer {
                 val response = it.meals[0]
                 RecentRecipeList.addFoodRecipe(response)
+
+                val sharedPreferences: SharedPreferences =
+                    this.getSharedPreferences("current_user", Context.MODE_PRIVATE)
+                val username = sharedPreferences.getString("current_user_name", null)
+                val sharedPreferencesRecipeLists: SharedPreferences =
+                    this.getSharedPreferences(username, Context.MODE_PRIVATE)
+                val userEditor = sharedPreferencesRecipeLists.edit()
+
+                val recentFoodList = Gson().toJson(RecentRecipeList.recentFoodRecipeList)
+                userEditor.putString("recent_food_recipe_list", recentFoodList)
+                userEditor.apply()
+
                 video.loadUrl(response.strYoutube)
                 if (SavedRecipeList.checkFoodRecipeInList(response))
                     Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
@@ -66,6 +81,11 @@ class DetailActivity : AppCompatActivity(), FoodRecipeAdapter.FoodRecipeClickLis
                         Glide.with(this).load(R.drawable.saved_icon).into(save_icon)
                         SavedRecipeList.addFoodRecipe(response)
                     }
+
+                    val foodList = Gson().toJson(SavedRecipeList.foodRecipeList)
+                    userEditor.putString("food_recipe_list", foodList)
+                    userEditor.apply()
+
                 }
                 title.text = response.strMeal
                 Glide.with(this).load(response.strMealThumb).into(image)

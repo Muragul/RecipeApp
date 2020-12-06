@@ -22,7 +22,9 @@ import com.bumptech.glide.Glide
 import com.example.recipeapp.R
 import com.example.recipeapp.data.model.bar.Drink
 import com.example.recipeapp.data.model.food.Meal
+import com.example.recipeapp.data.model.user.RecentRecipeList
 import com.example.recipeapp.data.model.user.RequestConstants
+import com.example.recipeapp.data.model.user.SavedRecipeList
 import com.example.recipeapp.ui.activity.StartActivity
 import com.example.recipeapp.ui.activity.bar.BarDetailActivity
 import com.example.recipeapp.ui.activity.food.DetailActivity
@@ -52,6 +54,8 @@ class ProfileActivity : AppCompatActivity(), FoodRecipeAdapter.FoodRecipeClickLi
             val userEditor = sharedPreferences.edit()
             userEditor.clear()
             userEditor.apply()
+            SavedRecipeList.clearRecipeList()
+            RecentRecipeList.clearRecipeList()
             val intent = Intent(this, StartActivity::class.java)
             startActivity(intent)
         }

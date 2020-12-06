@@ -4,8 +4,21 @@ import com.example.recipeapp.data.model.bar.Drink
 import com.example.recipeapp.data.model.food.Meal
 
 object SavedRecipeList {
-    val foodRecipeList: MutableList<Meal> = ArrayList()
-    val barRecipeList: MutableList<Drink> = ArrayList()
+    var foodRecipeList: MutableList<Meal> = ArrayList()
+    var barRecipeList: MutableList<Drink> = ArrayList()
+
+    fun clearRecipeList(){
+        foodRecipeList = ArrayList()
+        barRecipeList = ArrayList()
+    }
+
+    fun initFoodRecipeList(foodList: ArrayList<Meal>){
+        foodRecipeList = foodList
+    }
+
+    fun initBarRecipeList(barList: ArrayList<Drink>){
+        barRecipeList = barList
+    }
 
     fun addFoodRecipe(recipe: Meal) {
         foodRecipeList.add(recipe)
