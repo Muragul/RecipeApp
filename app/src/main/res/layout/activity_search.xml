@@ -7,9 +7,18 @@
     android:background="@color/colorLightBackground"
     tools:context=".ui.activity.food.SearchActivity">
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="@dimen/back_icon"
+        android:layout_height="@dimen/back_icon"
+        android:padding="@dimen/inner_margin"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/header"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="sans-serif-condensed-medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search"
@@ -18,6 +27,15 @@
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/open_menu"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:padding="@dimen/inner_margin"
+        android:src="@drawable/menu_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
         android:id="@+id/search_view"
@@ -34,5 +52,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_view"/>
+
+    <TextView
+        android:id="@+id/preview_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search for a specific ingredient"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
