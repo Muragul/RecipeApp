@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorLightBackground"
+    tools:context=".ui.activity.GraphActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="@dimen/back_icon"
+        android:layout_height="@dimen/back_icon"
+        android:padding="@dimen/inner_margin"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Statistics"
+        android:textAlignment="center"
+        android:textColor="@color/colorCoffeeDark"
+        android:textSize="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/preview_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Review our statistics charts in order to understand how to organize your nutrition to achieve your goal"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <FrameLayout
+        android:id="@+id/graph_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_margin="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preview_text" />
+
+    <FrameLayout
+        android:id="@+id/healthy_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_margin="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/graph_fragment" />
+
+    <FrameLayout
+        android:id="@+id/sport_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_margin="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/healthy_fragment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
