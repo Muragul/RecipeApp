@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.example.recipeapp.R
-import com.example.recipeapp.ui.fragment.GraphFragment
-import com.example.recipeapp.ui.fragment.HealthyFragment
-import com.example.recipeapp.ui.fragment.SportFragment
+import com.example.recipeapp.ui.fragment.statistics.GraphFragment
+import com.example.recipeapp.ui.fragment.statistics.HealthyFragment
+import com.example.recipeapp.ui.fragment.statistics.SportFragment
 import kotlinx.android.synthetic.main.activity_graph.*
 
 
