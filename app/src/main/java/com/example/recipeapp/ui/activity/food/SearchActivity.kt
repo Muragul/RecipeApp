@@ -1,5 +1,6 @@
 package com.example.recipeapp.ui.activity.food
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import com.example.recipeapp.R
+import com.example.recipeapp.ui.activity.GraphActivity
 import com.example.recipeapp.ui.fragment.food.SearchFragment
 import kotlinx.android.synthetic.main.activity_search.*
 
@@ -44,6 +46,11 @@ class SearchActivity : AppCompatActivity() {
                         .replace(R.id.fragment, SearchFragment("basil"))
                         .commit()
                     preview_text.text = ""
+                    true
+                }
+                R.id.menu4 -> {
+                    val intent = Intent(this, GraphActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false

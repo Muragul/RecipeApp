@@ -16,7 +16,8 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.food.SearchActivity"></activity>
+        <activity android:name=".ui.activity.GraphActivity"></activity>
+        <activity android:name=".ui.activity.food.SearchActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
