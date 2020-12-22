@@ -34,7 +34,7 @@ class LoginFragment(
         logInButton.setOnClickListener {
             username = rootView.findViewById(R.id.login)
             password = rootView.findViewById(R.id.password)
-            if (username.text.isBlank() || password.text.isBlank())
+            if (!validateLoginInput(username.text.toString(), password.text.toString()))
                 fillOutAllFieldsToast()
             else
                 loginListener.loginUser(
@@ -60,4 +60,9 @@ class LoginFragment(
     private fun fillOutAllFieldsToast() {
         Toast.makeText(context, "Please, fill out all fields", Toast.LENGTH_SHORT).show()
     }
+}
+
+internal fun validateLoginInput(username: String, password: String): Boolean {
+    if (username.isNotEmpty() && password.isNotEmpty()) return true
+    return false
 }

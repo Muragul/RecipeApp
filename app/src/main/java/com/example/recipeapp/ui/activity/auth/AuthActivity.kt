@@ -82,7 +82,7 @@ class AuthActivity : AppCompatActivity(), RegistrationFragment.RedirectToLogInCl
         userEditor.apply()
     }
 
-    private fun redirectToMainPage(){
+    private fun redirectToMainPage() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
 
@@ -92,7 +92,7 @@ class AuthActivity : AppCompatActivity(), RegistrationFragment.RedirectToLogInCl
         launch {
             withContext(Dispatchers.IO) {
                 val user = userDao?.getUser(username)
-                if (user?.username == username && user.password == password){
+                if (user?.username == username && user.password == password) {
                     saveUser(user)
                     initRecipeLists()
                     redirectToMainPage()
@@ -123,11 +123,13 @@ class AuthActivity : AppCompatActivity(), RegistrationFragment.RedirectToLogInCl
             SavedRecipeList.initBarRecipeList(barList as ArrayList<Drink>)
         }
         if (recentFoodListGson != null) {
-            val recentFoodList = gson.fromJson(recentFoodListGson, Array<Meal>::class.java).toMutableList()
+            val recentFoodList =
+                gson.fromJson(recentFoodListGson, Array<Meal>::class.java).toMutableList()
             RecentRecipeList.initFoodRecipeList(recentFoodList as ArrayList<Meal>)
         }
         if (recentBarListGson != null) {
-            val recentBarList = gson.fromJson(recentBarListGson, Array<Drink>::class.java).toMutableList()
+            val recentBarList =
+                gson.fromJson(recentBarListGson, Array<Drink>::class.java).toMutableList()
             RecentRecipeList.initBarRecipeList(recentBarList as ArrayList<Drink>)
         }
     }
