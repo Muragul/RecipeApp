@@ -36,7 +36,12 @@ class RegistrationFragment(
             email = rootView.findViewById(R.id.email)
             username = rootView.findViewById(R.id.username)
             password = rootView.findViewById(R.id.password)
-            if (email.text.isBlank() || username.text.isBlank() || password.text.isBlank())
+            if (!validateRegistrationInput(
+                    email.text.toString(),
+                    username.text.toString(),
+                    password.text.toString()
+                )
+            )
                 fillOutAllFieldsToast()
             else
                 registrationListener.registerUser(
@@ -58,6 +63,7 @@ class RegistrationFragment(
         Toast.makeText(context, "Please, fill out all fields", Toast.LENGTH_SHORT).show()
     }
 
+
     interface RedirectToLogInClickListener {
         fun redirectToLogIn()
     }
@@ -66,4 +72,13 @@ class RegistrationFragment(
         fun registerUser(email: String, username: String, password: String)
     }
 
+}
+
+internal fun validateRegistrationInput(
+    email: String,
+    username: String,
+    password: String
+): Boolean {
+    if (email.isNotEmpty() && username.isNotEmpty() && password.isNotEmpty()) return true
+    return false
 }
