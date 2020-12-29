@@ -52,6 +52,7 @@
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_vertical"
         android:hint="@string/hint_password"
+        android:inputType="textPassword"
         android:textColor="@color/colorCoffeeDark"
         android:textColorHint="@color/colorLightBackground"
         android:textSize="@dimen/input_text_size"
